@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
+gem 'acts-as-taggable-on', '~> 5.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
