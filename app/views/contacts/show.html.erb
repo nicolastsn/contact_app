@@ -6,7 +6,7 @@
 
 <ul class="list-inline">
   <li>
-    <%= image_tag (@contact.avatar.present? ? @contact.avatar_url : 'placeholder.jpg') %>
+    <%= image_tag (@contact.avatar.present? ? @contact.avatar_url : 'placeholder.jpg'), id: 'avatar' %>
   </li>
   <li>
     <h4><%= @contact.last_name.upcase %> <%= @contact.first_name.capitalize %></h4>

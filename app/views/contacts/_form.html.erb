@@ -1,14 +1,14 @@
 <div class="pull-right">
-  <%= link_to 'index', contacts_path %>
+  <%= link_to "index", contacts_path %>
 </div>
 
 <%= simple_form_for @contact do |f| %>
 
   <div class="input">
  
-    <%= image_tag (contact.avatar.present? ? contact.avatar_url : 'placeholder.jpg') %>
+    <%= image_tag (contact.avatar.present? ? contact.avatar_url : "placeholder.jpg"), id: "avatar" %>
 
-    <%= f.input :avatar, label: false, as: :file %>
+    <%= f.input :avatar, label: false, as: :file, :class => "btn btn-lg btn-default", id:'uploader_button' %>
 
     <div class="row">
       <hr>
@@ -16,7 +16,7 @@
         <%= f.input :first_name, label: "Prénom",required: false %>
       </div>
       <div class="col-md-6">
-        <%= f.input :last_name, label: 'Nom' %>
+        <%= f.input :last_name, label: "Nom" %>
       </div>
     </div>
     <div class="row">
@@ -38,11 +38,11 @@
         <%= f.input :phone, label: "Tél" %>
       </div>
     </div>
-    <%= f.input :tag_list, label: "Tags", hint: '(séparés par des virgules)'%>
+    <%= f.input :tag_list, label: "Tags", hint: "(séparés par des virgules)"%>
   </div>
 
-    
-    <%= f.button :submit, 'Créer contact', :class => "btn btn-lg btn-success" %>
-    </div>
+  
+  <%= f.button :submit, "Créer contact", :class => "btn btn-md btn-success " %>
+  
 
 <% end %>
