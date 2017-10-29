@@ -5,6 +5,14 @@
 <%= simple_form_for @contact do |f| %>
 
   <div class="input">
+    <% if @contact.avatar? %>
+      <%= image_tag @contact.avatar_url %>
+    <% else %>
+      <%= image_tag (contact.avatar.present? ? contact.avatar_url : 'placeholder.jpg') %>
+    <%end%>
+
+    <%= f.input :avatar, label: false, as: :file, wrapper: :horizontal_file_input %>
+
     <div class="row">
       <div class="col-md-6">
         <%= f.input :first_name, label: "Prénom",required: false %>
