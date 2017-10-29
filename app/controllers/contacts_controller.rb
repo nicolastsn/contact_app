@@ -4,7 +4,11 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    if params[:tag]
+      @contacts = Contact.tagged_with(params[:tag])
+    else
+      @contacts = Contact.all.order('last_name ASC')
+    end
   end
 
   # GET /contacts/1

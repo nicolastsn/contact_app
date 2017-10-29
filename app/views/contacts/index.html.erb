@@ -6,7 +6,6 @@
 
 <hr>  
 <div class="row">
-  <%= puts @contacts.sort%>
   <% @contacts.each do |contact| %>
     <a href= "<%= contact_path(contact.id) %>">
       <div class="col-sm-6">
