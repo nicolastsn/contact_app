@@ -2,30 +2,38 @@
   <%= link_to 'index', contacts_path %>
 </div>
 
-<%= simple_form_for(@contact, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for @contact do |f| %>
 
- <div class="row">
-    <div class="col-md-6">
-      <%= f.input :first_name, label: "Prénom",required: false %>
+  <div class="input">
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :first_name, label: "Prénom",required: false %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :last_name, label: 'Nom' %>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= f.input :last_name, label: 'Nom' %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :address, label: "Adresse" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.input :zip, label: "Code postal" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :country, as: :string, label: "Pays" %>
+      </div>
     </div>
-  </div>
-  <div>
-    <%= f.input :address %>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.input :email %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :email %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :phone, label: "Tél" %>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= f.input :phone %>
-    </div>
-    <%= f.input :zip %>
-    <%= f.input :country, as: :string %>
   </div>
 
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Créer contact'%>
 
 <% end %>
