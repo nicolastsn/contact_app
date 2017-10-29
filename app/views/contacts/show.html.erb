@@ -1,39 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="pull-right">
+  <%= link_to 'Index', contacts_path %> |
+  <%= link_to 'Editer', edit_contact_path(@contact) %> |
+  <%= link_to 'Supprimer', contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' } %> 
+</div>
+
+<ul class="list-inline">
+  <li>
+    <%= image_tag (@contact.avatar.present? ? @contact.avatar_url : 'placeholder.jpg') %>
+  </li>
+  <li>
+    <h4><%= @contact.last_name.upcase %> <%= @contact.first_name.capitalize %></h4>
+  </li>
+</ul>
+
+<hr>
 
 <p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @contact.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
+  <strong>Adresse:</strong>
   <%= @contact.address %>
 </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @contact.zip %>
-</p>
+
+<div class="row">
+  <div class="col-xs-6">
+    <strong>CP:</strong>
+    <%= @contact.zip %>
+  </div>
+  <div class="col-xs-6">
+    <strong>Pays:</strong>
+    <%= @contact.country %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <strong>Email:</strong>
+    <%= @contact.email %>
+  </div>
+  <div class="col-xs-6"> 
+    <strong>Tél:</strong>
+    <%= @contact.phone %>
+  </div> 
+</div>
+
+<hr>
 
 <p>
-  <strong>Country:</strong>
-  <%= @contact.country %>
+  <b>Tags: <%= raw(@contact.tag_list.map { |t| link_to t, tag_path(t), id: 'tag' }.sort.join()) %></b>
 </p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+</div>

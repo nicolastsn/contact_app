@@ -18,3 +18,29 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#tag {
+	font-family: sans-serif;
+	font-weight: 100;
+	font-size: 1.8rem;
+	line-height: 3.6rem;
+
+	color: #1abc9c;
+	border-style: solid;
+  border-width: 1.5px;
+  border-color: #1abc9c;
+  border-radius: 5px;
+  padding-right: 0.6rem;
+  padding-left: 0.6rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.2rem;
+  margin-right: 0.5rem;
+  
+  &:hover {
+        background-color:white;
+    }
+
+ 
+  
+}
