@@ -9,6 +9,20 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="container">
+      <div>
+        <%= link_to '+', new_contact_path, :class => "btn btn-sm btn-default pull-right"%>
+        <h1><%= link_to "Contacts App", root_path %></h1>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="container" id="main">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+    		<%= yield %>
+    	</div>
+    </div>
   </body>
 </html>

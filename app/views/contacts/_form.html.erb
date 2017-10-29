@@ -1,52 +1,31 @@
-<%= form_with(model: contact, local: true) do |form| %>
-  <% if contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<div class="pull-right">
+  <%= link_to 'index', contacts_path %>
+</div>
 
-      <ul>
-      <% contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@contact, html: { class: 'form-horizontal' }) do |f| %>
+
+ <div class="row">
+    <div class="col-md-6">
+      <%= f.input :first_name, label: "Prénom",required: false %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :contact_first_name %>
+    <div class="col-md-6">
+      <%= f.input :last_name, label: 'Nom' %>
+    </div>
+  </div>
+  <div>
+    <%= f.input :address %>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :email %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :phone %>
+    </div>
+    <%= f.input :zip %>
+    <%= f.input :country, as: :string %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :contact_last_name %>
-  </div>
+    <%= f.button :submit %>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :contact_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :contact_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :contact_zip %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country, id: :contact_country %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
